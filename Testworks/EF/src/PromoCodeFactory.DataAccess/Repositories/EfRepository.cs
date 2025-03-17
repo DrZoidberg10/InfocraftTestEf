@@ -10,6 +10,11 @@ namespace PromoCodeFactory.DataAccess.Repositories
     public class EfRepository<T> : IRepository<T>
         where T : BaseEntity
     {
+        private readonly EfDbContext _dbContext;
+        public EfRepository(EfDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Task<IEnumerable<T>> GetAllAsync()
         {
             throw new NotImplementedException();

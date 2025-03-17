@@ -39,7 +39,7 @@ namespace PromoCodeFactory.WebHost
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EfDbContext context)
         {
             if (env.IsDevelopment())
             {
@@ -49,6 +49,9 @@ namespace PromoCodeFactory.WebHost
             {
                 app.UseHsts();
             }
+
+            context.Database.EnsureDeleted();
+            context.Database.Migrate();
 
             app.UseOpenApi();
             app.UseSwaggerUi(x =>

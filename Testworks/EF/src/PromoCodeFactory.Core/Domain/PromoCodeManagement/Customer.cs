@@ -8,12 +8,15 @@ namespace PromoCodeFactory.Core.Domain.PromoCodeManagement
         : BaseEntity
     {
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
 
         public string Email { get; set; }
 
-        //TODO: Списки Preferences и Promocodes 
+        public List<PromoCode> PromoCodes { get; set; }
+
+        public List<CustomerPreference> CustomerPreferences { get; set; }
     }
 }
