@@ -11,6 +11,6 @@ namespace PromoCodeFactory.Core.Domain.Administration
 
         public string Description { get; set; }
 
-        public List<Employee> Employees { get; set; }
+        public List<Employee> Employees { get; set; } = [];
     }
 }

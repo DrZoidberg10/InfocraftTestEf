@@ -14,16 +14,6 @@ namespace PromoCodeFactory.DataAccess.Configurations
                 HasKey(cp => new { cp.CustomerId, cp.PreferenceId });
 
             builder.
-                HasOne(cp => cp.Customer)
-                .WithMany(c => c.CustomerPreferences)
-                .HasForeignKey(cp => cp.CustomerId);
-
-            builder.
-                HasOne(cp => cp.Preference)
-                .WithMany(p => p.CustomerPreferences)
-                .HasForeignKey(cp => cp.PreferenceId);
-
-            builder.
                 HasData(FakeDbData.CustomerPreferences);
         }
     }

@@ -15,8 +15,8 @@ namespace PromoCodeFactory.Core.Domain.PromoCodeManagement
 
         public string Email { get; set; }
 
-        public List<PromoCode> PromoCodes { get; set; }
+        public List<PromoCode> PromoCodes { get; set; } = [];
 
-        public List<CustomerPreference> CustomerPreferences { get; set; }
+        public List<Preference> Preferences { get; set; } = [];
     }
 }

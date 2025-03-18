@@ -145,7 +145,7 @@ namespace PromoCodeFactory.DataAccess.Migrations
 
                     b.HasIndex("PreferenceId");
 
-                    b.ToTable("CustomerPreference");
+                    b.ToTable("CustomerPreferences");
 
                     b.HasData(
                         new
@@ -258,21 +258,17 @@ namespace PromoCodeFactory.DataAccess.Migrations
 
             modelBuilder.Entity("PromoCodeFactory.Core.Domain.PromoCodeManagement.CustomerPreference", b =>
                 {
-                    b.HasOne("PromoCodeFactory.Core.Domain.PromoCodeManagement.Customer", "Customer")
-                        .WithMany("CustomerPreferences")
+                    b.HasOne("PromoCodeFactory.Core.Domain.PromoCodeManagement.Customer", null)
+                        .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PromoCodeFactory.Core.Domain.PromoCodeManagement.Preference", "Preference")
-                        .WithMany("CustomerPreferences")
+                    b.HasOne("PromoCodeFactory.Core.Domain.PromoCodeManagement.Preference", null)
+                        .WithMany()
                         .HasForeignKey("PreferenceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("Preference");
                 });
 
             modelBuilder.Entity("PromoCodeFactory.Core.Domain.PromoCodeManagement.PromoCode", b =>
@@ -309,15 +305,11 @@ namespace PromoCodeFactory.DataAccess.Migrations
 
             modelBuilder.Entity("PromoCodeFactory.Core.Domain.PromoCodeManagement.Customer", b =>
                 {
-                    b.Navigation("CustomerPreferences");
-
                     b.Navigation("PromoCodes");
                 });
 
             modelBuilder.Entity("PromoCodeFactory.Core.Domain.PromoCodeManagement.Preference", b =>
                 {
-                    b.Navigation("CustomerPreferences");
-
                     b.Navigation("PromoCodes");
                 });
 #pragma warning restore 612, 618

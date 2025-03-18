@@ -7,8 +7,8 @@ namespace PromoCodeFactory.Core.Domain.PromoCodeManagement
     {
         public string Name { get; set; }
 
-        public List<CustomerPreference> CustomerPreferences { get; set; }
+        public List<Customer> Customers { get; set; } = [];
 
-        public List<PromoCode> PromoCodes { get; set; }
+        public List<PromoCode> PromoCodes { get; set; } = [];
     }
 }

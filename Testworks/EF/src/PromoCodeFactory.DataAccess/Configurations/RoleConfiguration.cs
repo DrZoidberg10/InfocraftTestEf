@@ -14,7 +14,8 @@ namespace PromoCodeFactory.DataAccess.Configurations
 
             builder.
                 HasMany(r => r.Employees)
-                .WithOne(e => e.Role);
+                .WithOne(e => e.Role)
+                .HasForeignKey(e => e.RoleId);
 
             builder.
                 Property(r => r.Name)

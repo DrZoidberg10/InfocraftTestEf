@@ -14,7 +14,13 @@ namespace PromoCodeFactory.DataAccess.Configurations
 
             builder.
                 HasMany(p => p.PromoCodes)
-                .WithOne(p => p.Preference);
+                .WithOne(p => p.Preference)
+                .HasForeignKey(p => p.PreferenceId);
+
+            builder.
+                HasMany(p => p.Customers)
+                .WithMany(c => c.Preferences)
+                .UsingEntity<CustomerPreference>();
 
             builder.
                 Property(p => p.Name)

@@ -31,6 +31,8 @@ namespace PromoCodeFactory.WebHost
             services.AddScoped(typeof(IRepository<Customer>), (x) =>
                 new InMemoryRepository<Customer>(FakeDataFactory.Customers));
 
+            services.AddScoped<EfRepository<Customer>>();
+
             services.AddOpenApiDocument(options =>
             {
                 options.Title = "PromoCode Factory API Doc";
