@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using PromoCodeFactory.Core.Abstractions.Repositories;
 using PromoCodeFactory.Core.Domain.PromoCodeManagement;
 using PromoCodeFactory.WebHost.Models;
+using PromoCodeFactory.DataAccess.Repositories;
 
 namespace PromoCodeFactory.WebHost.Controllers
 {
@@ -17,9 +18,9 @@ namespace PromoCodeFactory.WebHost.Controllers
     public class PreferencesController
         : ControllerBase
     {
-        private readonly IRepository<Preference> _preferenceRepository;
+        private readonly EfRepository<Preference> _preferenceRepository;
 
-        public PreferencesController(IRepository<Preference> preferenceRepository)
+        public PreferencesController (EfRepository<Preference> preferenceRepository)
         {
             _preferenceRepository = preferenceRepository;
         }
