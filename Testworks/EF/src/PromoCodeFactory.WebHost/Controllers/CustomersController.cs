@@ -35,6 +35,7 @@ namespace PromoCodeFactory.WebHost.Controllers
         [HttpGet]
         public async Task<List<CustomerShortResponse>> GetCustomersAsync()
         {
+            //fsdfdfs
             var customers = await _customerRepository.GetAllAsync();
             var customersModelList = customers
                 .Select(
